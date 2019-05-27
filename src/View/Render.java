@@ -29,7 +29,7 @@ public class Render extends JPanel {
         if(data.getGameState() == 0)
             g.drawString( "Press P to start", 32, 30);
         else if (data.getGameState() == 1)
-            g.drawString( "RUNNING", 32, 32);
+            g.drawString( "SCORE: "+data.getScore(), 32, 32);
 
         for(Sprite sprite : data.getSprites()) {
             int y = sprite.getPos().y*32;

@@ -16,7 +16,11 @@ public abstract class Static extends Sprite{
     }
 
     /**** METHODS ****/
+    public boolean update(Model world) {
+        return this.alive;
+    }
+    public boolean onCollision(Type collider) {
+        return false;
+    }
     public abstract Static clone(Point newPos);
-    public abstract void update(Model world);
-    public abstract Type onCollision();
 }

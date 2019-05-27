@@ -1,6 +1,8 @@
 package Model;
 
 import Model.Elements.Dynamic;
+import Model.Elements.Specialization.Bonus;
+import Model.Elements.Specialization.Player;
 import Model.Elements.Sprite;
 import Model.Elements.Static;
 
@@ -17,10 +19,11 @@ public class Model implements Data {
 
     private Factory factory;
 
-    private Dynamic player;
+    private Player player;
     private Point direction;
 
     private List<Sprite> map;
+    private List<Dynamic> updatable;
 
     /**** CONSTRUCTOR ***/
     public Model(int map_size_x, int map_size_y) {
@@ -47,10 +50,7 @@ public class Model implements Data {
 
     @Override
     public int getScore() {
-        return score;
-    }
-    public void setScoreUp() {
-        this.score++;
+        return Bonus.getScore();
     }
 
     @Override
@@ -62,7 +62,9 @@ public class Model implements Data {
     }
 
     public Point getDirection() {
-        return direction;
+        Point dir = direction;
+        direction = new Point();
+        return dir;
     }
     public void setDirection(Point direction) {
         this.direction = direction;
@@ -72,9 +74,9 @@ public class Model implements Data {
         return this.player;
     }
 
-    public Sprite getSpriteAtPos(Point pos) {
+    public Sprite getSpriteAtPos(Point pos, Sprite requester) {
         for(Sprite sprite : map) {
-            if(sprite.getPos().x == pos.x && sprite.getPos().y == pos.y) {
+            if(sprite.getPos().x == pos.x && sprite.getPos().y == pos.y && sprite != requester) {
                 return sprite;
             }
         }

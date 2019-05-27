@@ -62,7 +62,6 @@ public class Controller implements InputsListener {
                 mapEditor.createElement(view.getRender().getMousePosition());
 
             view.refresh();
-
             try {
                 TimeUnit.MILLISECONDS.sleep(start + MS_PER_UPDATE - clock.millis());
             } catch (InterruptedException e) {
@@ -72,12 +71,14 @@ public class Controller implements InputsListener {
     }
 
     private void updateLogic() {
-        for(Sprite sprite : model.getSprites())  {
-            sprite.update(model);
-        }
         ListIterator<Sprite> iter = model.getSprites().listIterator();
         while(iter.hasNext()){
-            iter.next().update(model);
+            Sprite next = iter.next();
+
+            if(next.isAlive())
+                next.update(model);
+            else
+                iter.remove();
         }
     }
 }

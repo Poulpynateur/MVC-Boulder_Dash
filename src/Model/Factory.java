@@ -2,6 +2,7 @@ package Model;
 
 import Model.Elements.Dynamic;
 import Model.Elements.Specialization.Bonus;
+import Model.Elements.Specialization.Dirt;
 import Model.Elements.Specialization.Player;
 import Model.Elements.Specialization.Wall;
 import Model.Elements.Sprite;
@@ -45,7 +46,7 @@ public class Factory {
     }
 
     public Player deliverPlayer(Point mapBounds) {
-        return new Player(images.get("TEST"), mapBounds.x/2,mapBounds.y/2);
+        return new Player(getImages("CHAR"), mapBounds.x/2,mapBounds.y/2);
     }
 
     public List<Sprite> deliverMap(Point mapBounds) {
@@ -53,6 +54,7 @@ public class Factory {
 
         map.add(new Wall(images.get("BRICK"), mapBounds.x-2, 0));
         map.add(new Bonus(getImages("BONUS"), mapBounds.x-6, 0));
+        map.add(new Dirt(images.get("DIRT"), mapBounds.x-4, 0));
 
 /*
         map.add(new Static(getImages("BONUS"), mapBounds.x-6, 0));

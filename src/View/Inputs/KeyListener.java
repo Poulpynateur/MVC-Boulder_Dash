@@ -37,25 +37,6 @@ public class KeyListener extends KeyAdapter {
                 inputsListener.gameStart();
                 break;
         }
-
-        inputsListener.setDirectionInputs(direction);
-    }
-
-    @Override
-    public void keyReleased(KeyEvent event) {
-        Point direction = new Point();
-        int keyCode = event.getKeyCode();
-        switch (keyCode) {
-            case KeyEvent.VK_UP:
-            case KeyEvent.VK_DOWN:
-                direction.y = 0;
-                break;
-            case KeyEvent.VK_LEFT:
-            case KeyEvent.VK_RIGHT:
-                direction.x = 0;
-                break;
-        }
-
         inputsListener.setDirectionInputs(direction);
     }
 }

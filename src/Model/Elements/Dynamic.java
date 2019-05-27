@@ -26,6 +26,6 @@ public abstract class Dynamic extends Sprite {
 
     /**** METHODS ****/
     public abstract Dynamic clone(Point newPos);
-    public abstract void update(Model world);
-    public abstract Type onCollision();
+    public abstract boolean update(Model world);
+    public abstract boolean onCollision(Type collider);
 }

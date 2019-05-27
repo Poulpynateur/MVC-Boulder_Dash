@@ -19,8 +19,4 @@ public class Wall extends Static {
     public Wall clone(Point newPos) {
         return new Wall(this.images, newPos.x, newPos.y);
     }
-    public void update(Model world) {}
-    public Type onCollision() {
-        return Type.BLOCK;
-    }
 }

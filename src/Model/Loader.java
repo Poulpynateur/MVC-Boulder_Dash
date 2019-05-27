@@ -28,8 +28,6 @@ public class Loader {
             buffer = ImageIO.read(new File("./Src/Model/Ressources/sprites.png"));
             images = new HashMap<String, Image>();
 
-            images.put("TEST", buffer.getSubimage(0, 0, 16, 16));
-
             images.put("WALL", buffer.getSubimage(0, 48, 16, 16));
             images.put("DIRT", buffer.getSubimage(48, 48, 16, 16));
             images.put("BRICK", buffer.getSubimage(32, 48, 16, 16));
@@ -37,6 +35,7 @@ public class Loader {
 
             putMultipleImages("BONUS", new Point(0,64), 2, 4);
             putMultipleImages("BOMB", new Point(80,64), 1, 4);
+            putMultipleImages("CHAR", new Point(0,0), 7, 1);
 
             return images;
         } catch (IOException ex) {

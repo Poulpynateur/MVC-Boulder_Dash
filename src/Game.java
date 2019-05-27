@@ -16,7 +16,7 @@ public class Game {
         View view = new View(model, WIDTH, HEIGHT);
         Controller controller = new Controller(view, model);
 
-        controller.setUpdateFPS(20);
+        controller.setUpdateFPS(10);
         view.setInputsListener(controller);
 
         controller.loop();

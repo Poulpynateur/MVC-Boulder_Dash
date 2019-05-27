@@ -8,6 +8,7 @@ import Model.Model;
 
 public abstract class Sprite {
 
+    protected boolean alive;
     private boolean animated;
     private int image_index;
 
@@ -20,12 +21,14 @@ public abstract class Sprite {
         this.images.add(_image);
         this.pos = new Point(origin_x, origin_y);
         this.animated = false;
+        this.alive = true;
         this.image_index = 0;
     }
     protected Sprite(List<Image> _image, int origin_x, int origin_y) {
         this.images = _image;
         this.pos = new Point(origin_x, origin_y);
         this.animated = true;
+        this.alive = true;
         this.image_index = 0;
     }
 
@@ -45,8 +48,14 @@ public abstract class Sprite {
         this.pos.y = y;
     }
 
+    public boolean isAlive() {
+        return alive;
+    }
+    public void kill() {
+        this.alive = false;
+    }
     /**** METHODS ****/
     public abstract Sprite clone(Point newPos);
-    public abstract void update(Model world);
-    public abstract Type onCollision();
+    public abstract boolean update(Model world);
+    public abstract boolean onCollision(Type collider);
 }

@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class Player extends Dynamic {
+
+
+    /**** CONSTRUCTOR ***/
     public Player(Image _image, int origin_x, int origin_y) {
         super(_image, origin_x, origin_y);
     }
@@ -21,27 +24,20 @@ public class Player extends Dynamic {
     public Player clone(Point newPos) {
         return new Player(this.images, newPos.x, newPos.y);
     }
-    public void update(Model world) {
-        Point future = new Point(pos.x + world.getDirection().x, pos.y + world.getDirection().y);
+    public boolean update(Model world) {
+        Point direction = world.getDirection();
+        Point future = new Point(pos.x + direction.x, pos.y + direction.y);
 
-        ListIterator<Sprite> iter = world.getSprites().listIterator();
-        while(iter.hasNext()){
-            Sprite next = iter.next();
-            if(future.x == next.getPos().x && future.y == next.getPos().y) {
-                Type response = next.onCollision();
-
-                if(response == Type.BLOCK)
-                    return;
-                else if(response == Type.SCORE) {
-                    iter.remove();
-                    break;
-                }
-            }
+        Sprite target = world.getSpriteAtPos(future, this);
+        if(target != null) {
+            if(target.onCollision(Type.PLAYER) == false)
+                return this.alive;
         }
 
-        this.move(world.getDirection());
+        this.move(direction);
+        return this.alive;
     }
-    public Type onCollision() {
-        return Type.PLAYER;
+    public boolean onCollision(Type collider) {
+        return true;
     }
 }
