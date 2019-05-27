@@ -2,6 +2,8 @@
 
 Copy of the Boulder dash game, made with Java (Swing and AWT).
 
+![](http://url/to/img.png)
+
 ## DONE
 
 ### Base
@@ -31,5 +33,6 @@ Copy of the Boulder dash game, made with Java (Swing and AWT).
 
 In addition to Swing/AWT (Java FX ?) and the MVC pattern that are constraints :
 * Inputs management (improve fluidity)
-* Object (globaly the model part)
+* Model : actual objects are hard to maintain and are not scalable (*reduce class coupling, generalize, assure the separation of queries from updates*)
+*
 * Main loop

@@ -1,10 +1,7 @@
 package Model;
 
 import Model.Elements.Dynamic;
-import Model.Elements.Specialization.Bonus;
-import Model.Elements.Specialization.Dirt;
-import Model.Elements.Specialization.Player;
-import Model.Elements.Specialization.Wall;
+import Model.Elements.Specialization.*;
 import Model.Elements.Sprite;
 import Model.Elements.Static;
 
@@ -55,14 +52,10 @@ public class Factory {
         map.add(new Wall(images.get("BRICK"), mapBounds.x-2, 0));
         map.add(new Bonus(getImages("BONUS"), mapBounds.x-6, 0));
         map.add(new Dirt(images.get("DIRT"), mapBounds.x-4, 0));
+        map.add(new Rock(images.get("ROCK"), mapBounds.x-3, 0));
 
-/*
-        map.add(new Static(getImages("BONUS"), mapBounds.x-6, 0));
-        map.add(new Static(getImages("BOMB"), mapBounds.x-5, 0));
-        map.add(new Static(images.get("DIRT"), mapBounds.x-4, 0));
-        map.add(new Static(images.get("ROCK"), mapBounds.x-3, 0));
-        map.add(new Static(images.get("BRICK"), mapBounds.x-2, 0));
-*/
+        map.add(new Wall(getImages("BOMB"), mapBounds.x-5, 0));
+
         for(int y=0; y<mapBounds.y; y++) {
             for(int x=0; x<mapBounds.x; x++) {
                 if(x == mapBounds.x -1 || x == 0 || y == mapBounds.y -1 || y == 1) {
