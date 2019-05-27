@@ -2,7 +2,7 @@
 
 Copy of the Boulder dash game, made with Java (Swing and AWT).
 
-![preview](./preview.png)
+![preview](https://github.com/Poulpynateur/MVC-Boulder_Dash/blob/master/preview.PNG)
 
 ## DONE
 
