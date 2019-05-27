@@ -2,7 +2,7 @@
 
 Copy of the Boulder dash game, made with Java (Swing and AWT).
 
-![](http://url/to/img.png)
+![](/preview.png)
 
 ## DONE
 
