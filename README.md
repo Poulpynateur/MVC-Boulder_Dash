@@ -28,6 +28,7 @@ Copy of the Boulder dash game, made with Java (Swing and AWT).
 * Creating the missing game objects (exit, bomb, ...)
 * Add game over
 * Finish player animation
+* Correct ROCK bugs
 
 ## TO IMPROVE
 
